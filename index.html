@@ -81,6 +81,77 @@ h1{
 .th-cell .n{font-size:12px; color:var(--ink-2)}
 .v.ok{color:var(--ok)} .v.warn{color:var(--warn)} .v.bad{color:var(--bad)}
 
+/* ---- simulator ---- */
+.sim{display:grid; grid-template-columns:minmax(260px,320px) 1fr; gap:1px; background:var(--rule); border:1px solid var(--rule); border-radius:3px; box-shadow:var(--shadow); overflow:hidden}
+.sim-ctrl{background:var(--surface-2); padding:24px 22px; display:flex; flex-direction:column; gap:26px}
+.sim-out{background:var(--surface); padding:24px 26px; display:flex; flex-direction:column; gap:22px}
+.lever{display:flex; flex-direction:column; gap:9px}
+.lever-head{display:flex; align-items:baseline; justify-content:space-between; gap:10px}
+.lever-head .lbl{font-size:12px; font-weight:600; letter-spacing:.05em; color:var(--ink-2)}
+.lever-head .val{font-family:"IBM Plex Mono",monospace; font-size:27px; font-weight:600; font-variant-numeric:tabular-nums; line-height:1}
+.lever-head .val.sub{font-size:19px; color:var(--ink)}
+.lever-head .val small{font-size:13px; font-weight:500; color:var(--ink-3)}
+input[type=range]{
+  -webkit-appearance:none; appearance:none; width:100%; height:26px; background:transparent; margin:0; cursor:pointer;
+}
+input[type=range]::-webkit-slider-runnable-track{height:6px; border-radius:3px; background:var(--rule-strong)}
+input[type=range]::-moz-range-track{height:6px; border-radius:3px; background:var(--rule-strong)}
+input[type=range]::-webkit-slider-thumb{
+  -webkit-appearance:none; appearance:none; width:22px; height:22px; margin-top:-8px; border-radius:50%;
+  background:var(--accent); border:3px solid var(--surface); box-shadow:0 1px 4px rgba(0,0,0,.3);
+}
+input[type=range]::-moz-range-thumb{
+  width:16px; height:16px; border-radius:50%; background:var(--accent); border:3px solid var(--surface); box-shadow:0 1px 4px rgba(0,0,0,.3);
+}
+input[type=range]:focus-visible{outline:2px solid var(--accent); outline-offset:4px; border-radius:4px}
+.ticks{display:flex; justify-content:space-between; font-family:"IBM Plex Mono",monospace; font-size:10.5px; color:var(--ink-3); margin-top:-4px}
+
+/* threshold ruler */
+.ruler{position:relative; height:44px; margin-top:2px}
+.ruler .band{position:absolute; top:14px; height:8px; border-radius:2px}
+.ruler .marker{position:absolute; top:6px; width:2px; height:24px; background:var(--ink)}
+.ruler .mlabel{position:absolute; top:30px; font-family:"IBM Plex Mono",monospace; font-size:10px; font-weight:600; color:var(--ink-2); transform:translateX(-50%); white-space:nowrap}
+.ruler .pin{position:absolute; top:2px; width:0; height:0; border-left:6px solid transparent; border-right:6px solid transparent; border-top:9px solid var(--accent); transform:translateX(-6px)}
+
+.stress{display:flex; align-items:flex-start; gap:10px; font-size:12.5px; color:var(--ink-2); line-height:1.5; padding-top:2px; border-top:1px solid var(--rule); padding-top:16px}
+.stress input{margin:3px 0 0; accent-color:var(--accent); width:15px; height:15px; flex:none}
+.stress label{cursor:pointer}
+.stress b{color:var(--ink)}
+
+.verdict-badge{display:flex; align-items:center; gap:14px; flex-wrap:wrap}
+.badge-lg{font-family:"Gowun Batang",serif; font-size:26px; font-weight:700; padding:5px 18px; border-radius:3px; line-height:1.35}
+.badge-lg.ok{background:var(--ok-bg); color:var(--ok)}
+.badge-lg.warn{background:var(--warn-bg); color:var(--warn)}
+.badge-lg.bad{background:var(--bad-bg); color:var(--bad)}
+.badge-note{font-size:13px; color:var(--ink-2); flex:1 1 200px; min-width:180px}
+
+.wf{display:flex; flex-direction:column; gap:7px}
+.wf-head{display:flex; justify-content:space-between; align-items:baseline; font-size:11.5px; font-weight:600; letter-spacing:.05em; color:var(--ink-3)}
+.wf-head .tot{font-family:"IBM Plex Mono",monospace; font-size:20px; font-weight:600; color:var(--ink); letter-spacing:0}
+.bar{position:relative; height:34px; background:var(--surface-2); border:1px solid var(--rule); border-radius:2px; display:flex; overflow:hidden}
+.seg{height:100%; display:flex; align-items:center; justify-content:center; font-family:"IBM Plex Mono",monospace; font-size:11px; font-weight:600; color:#fff; overflow:hidden; white-space:nowrap}
+.seg.pf{background:var(--accent)}
+.seg.sub{background:var(--ok)}
+.seg.cash{background:var(--warn)}
+.seg.gap{background:repeating-linear-gradient(45deg,var(--bad) 0 6px,transparent 6px 12px); opacity:.55}
+.bar .tick{position:absolute; top:-1px; bottom:-1px; width:2px; background:var(--ink); z-index:2}
+.tickrow{position:relative; height:16px}
+.tickrow span{position:absolute; font-family:"IBM Plex Mono",monospace; font-size:10px; font-weight:600; color:var(--ink-2); transform:translateX(-50%); white-space:nowrap}
+.wf-legend{display:flex; flex-wrap:wrap; gap:14px; font-size:11.5px; color:var(--ink-2)}
+.wf-legend span{display:inline-flex; align-items:center; gap:6px}
+.wf-legend i{width:11px; height:11px; border-radius:2px; flex:none; display:inline-block}
+
+.tiles{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1px; background:var(--rule); border:1px solid var(--rule)}
+.tile{background:var(--surface); padding:12px 14px; display:flex; flex-direction:column; gap:2px}
+.tile .k{font-size:11px; color:var(--ink-3); font-weight:600; letter-spacing:.03em}
+.tile .v{font-family:"IBM Plex Mono",monospace; font-size:19px; font-weight:600; font-variant-numeric:tabular-nums; line-height:1.25}
+.tile .d{font-size:11px; color:var(--ink-3); font-variant-numeric:tabular-nums}
+.tile .v.ok{color:var(--ok)} .tile .v.warn{color:var(--warn)} .tile .v.bad{color:var(--bad)} .tile .v.zero{color:var(--ink-3)}
+@media(max-width:760px){ .sim{grid-template-columns:1fr} .tiles{grid-template-columns:repeat(2,minmax(0,1fr))} }
+@media(prefers-reduced-motion:no-preference){
+  .seg,.ruler .pin{transition:width .18s ease, left .18s ease}
+}
+
 /* ---- section ---- */
 section{display:flex; flex-direction:column; gap:16px}
 h2{
@@ -192,6 +263,86 @@ img{max-width:100%}
     <div class="th-cell"><span class="k">기말현금 0 분양가</span><span class="v ok">2,692<span style="font-size:14px">만원</span></span><span class="n">시행이익 소멸점 · 계획가 대비 −8.8%</span></div>
   </div>
 </div>
+
+<section>
+  <h2><span class="tag">시뮬레이터</span>분양률 레버</h2>
+  <p class="note">분양률을 움직이면 만기 시점 가용재원이 상환 우선순위대로 재배분되는 과정이 바로 옆에 반영됩니다. 평당 분양가는 보조 레버이며 기본값은 계획가 2,950만원입니다.</p>
+  <div class="sim">
+    <div class="sim-ctrl">
+      <div class="lever">
+        <div class="lever-head">
+          <span class="lbl">분양률</span>
+          <span class="val" id="v-rate">100.0<small>%</small></span>
+        </div>
+        <input type="range" id="s-rate" min="60" max="100" step="0.5" value="100" aria-label="분양률 (퍼센트)">
+        <div class="ticks"><span>60%</span><span>70%</span><span>80%</span><span>90%</span><span>100%</span></div>
+        <div class="ruler" id="ruler" aria-hidden="true">
+          <div class="band" id="b-bad"></div>
+          <div class="band" id="b-warn"></div>
+          <div class="band" id="b-ok"></div>
+          <div class="marker" id="m-pf"></div>
+          <div class="marker" id="m-full"></div>
+          <div class="mlabel" id="l-pf"></div>
+          <div class="mlabel" id="l-full"></div>
+          <div class="pin" id="pin"></div>
+        </div>
+      </div>
+
+      <div class="lever">
+        <div class="lever-head">
+          <span class="lbl">공급 평당 분양가 (보조)</span>
+          <span class="val sub" id="v-price">2,950<small>만원</small></span>
+        </div>
+        <input type="range" id="s-price" min="2300" max="3200" step="10" value="2950" aria-label="공급면적 기준 평당 분양가 (만원)">
+        <div class="ticks"><span>2,300</span><span>2,600</span><span>2,950</span><span>3,200</span></div>
+      </div>
+
+      <div class="stress">
+        <input type="checkbox" id="s-stress">
+        <label for="s-stress">미분양 시 <b>추가 금융비용 180억원</b> 반영 — 미분양담보대출 이자(연 45억)와 본PF 1년 연장 이자(144.5억). 원자료 수지에는 없는 항목입니다.</label>
+      </div>
+    </div>
+
+    <div class="sim-out">
+      <div class="verdict-badge">
+        <span class="badge-lg ok" id="badge">전액 상환</span>
+        <span class="badge-note" id="badge-note">본PF 2,100억과 후순위 380억을 모두 지급하고 320.0억이 남습니다.</span>
+      </div>
+
+      <div class="wf">
+        <div class="wf-head"><span>만기 가용재원 배분 (2029-06)</span><span class="tot" id="v-avail">2,800.0억</span></div>
+        <div class="bar" id="bar">
+          <div class="seg pf" id="g-pf"></div>
+          <div class="seg sub" id="g-sub"></div>
+          <div class="seg cash" id="g-cash"></div>
+          <div class="seg gap" id="g-gap"></div>
+          <div class="tick" id="t-pf"></div>
+          <div class="tick" id="t-full"></div>
+        </div>
+        <div class="tickrow">
+          <span id="lt-pf">PF 2,100</span>
+          <span id="lt-full">＋후순위 2,480</span>
+        </div>
+        <div class="wf-legend">
+          <span><i style="background:var(--accent)"></i>본PF 원금 상환</span>
+          <span><i style="background:var(--ok)"></i>후순위 380 지급</span>
+          <span><i style="background:var(--warn)"></i>시행사 기말현금</span>
+          <span><i style="background:var(--bad);opacity:.55"></i>미지급 부족액</span>
+        </div>
+      </div>
+
+      <div class="tiles">
+        <div class="tile"><span class="k">총 분양수입</span><span class="v" id="t-sales">3,868.4</span><span class="d" id="d-sales">계획 대비 ±0.0</span></div>
+        <div class="tile"><span class="k">PF 미지급</span><span class="v zero" id="t-pfun">–</span><span class="d">본PF 원금 2,100 기준</span></div>
+        <div class="tile"><span class="k">후순위 미지급</span><span class="v zero" id="t-subun">–</span><span class="d">유보금 300 + 대여금 80</span></div>
+        <div class="tile"><span class="k">기말 현금</span><span class="v" id="t-cash">320.0</span><span class="d">시행사 귀속</span></div>
+        <div class="tile"><span class="k">만기 누적 DSCR</span><span class="v" id="t-dscr">1.33배</span><span class="d">가용재원 ÷ PF 원금</span></div>
+        <div class="tile"><span class="k">미분양</span><span class="v" id="t-unsold">0세대</span><span class="d" id="d-unsold">재고 자산 0.0억</span></div>
+      </div>
+    </div>
+  </div>
+  <p class="note" id="sim-summary">계획 시나리오입니다. 이 상태에서 분양률만 낮추면 <b>91.6%</b>에서 시행이익이 소멸하고, <b>81.7%</b>에서 본PF 원금 상환이 무너집니다.</p>
+</section>
 
 <section>
   <h2><span class="tag">기준</span>산출 구조</h2>
@@ -408,5 +559,120 @@ img{max-width:100%}
 </footer>
 
 </div>
+
+<script>
+(function(){
+  "use strict";
+  var APT_PY=12486.8, RET_PY=528, RET_P=3500;
+  var FIXED_SENIOR=2812.54, FIXED_IN=145.2, FINCOST=458.1;
+  var PF=2100, SUB=380, FULL=PF+SUB, AGENT=12.06, SCHOOL=0.008, MID=0.0405;
+  var STRESS=180, BAR_MAX=3200, PLAN_SALES=3868.4;
+
+  var $=function(id){return document.getElementById(id);};
+  var f1=function(n){return n.toLocaleString('ko-KR',{minimumFractionDigits:1,maximumFractionDigits:1});};
+  var f0=function(n){return n.toLocaleString('ko-KR',{maximumFractionDigits:0});};
+  var clamp=function(v,a,b){return v<a?a:(v>b?b:v);};
+
+  function model(P,R,stress){
+    var A=APT_PY*P*R/1e4, C=RET_PY*RET_P*R/1e4, S=A+C;
+    var inflow=S + A*MID + FIXED_IN;
+    var outflow=FIXED_SENIOR + S*SCHOOL + AGENT*R + A*MID;
+    var X=inflow-outflow-FINCOST-(stress?STRESS:0)+PF;
+    var pfPaid=Math.min(X,PF), rem=Math.max(0,X-PF);
+    var subPaid=Math.min(rem,SUB), cash=Math.max(0,rem-SUB);
+    return {S:S, X:X, pfPaid:Math.max(0,pfPaid), pfUn:Math.max(0,PF-X),
+            subPaid:subPaid, subUn:Math.max(0,SUB-subPaid), cash:cash,
+            unsold:A/R*(1-R)};
+  }
+  function slope(P){ return 0.992*((APT_PY*P+RET_PY*RET_P)/1e4) - AGENT; }
+  function thresholds(P,stress){
+    var k=slope(P), base=1025.44+(stress?STRESS:0);
+    return {pf:(PF+base)/k*100, full:(FULL+base)/k*100};
+  }
+
+  var sRate=$('s-rate'), sPrice=$('s-price'), sStress=$('s-stress');
+
+  function render(){
+    var R=parseFloat(sRate.value)/100, P=parseFloat(sPrice.value), st=sStress.checked;
+    var m=model(P,R,st), t=thresholds(P,st);
+    var grade = m.X>=FULL ? 'ok' : (m.X>=PF ? 'warn' : 'bad');
+
+    $('v-rate').innerHTML=(R*100).toFixed(1)+'<small>%</small>';
+    $('v-price').innerHTML=f0(P)+'<small>만원</small>';
+
+    /* threshold ruler */
+    var pos=function(r){return clamp((r-60)*2.5,0,100);};
+    var pPf=pos(t.pf), pFull=pos(t.full), pNow=pos(R*100);
+    var bands=[['b-bad','var(--bad)',0,pPf],['b-warn','var(--warn)',pPf,pFull-pPf],['b-ok','var(--ok)',pFull,100-pFull]];
+    bands.forEach(function(b){
+      var el=$(b[0]); el.style.background=b[1]; el.style.opacity='.45';
+      el.style.left=b[2]+'%'; el.style.width=Math.max(0,b[3])+'%';
+    });
+    $('m-pf').style.left=pPf+'%'; $('m-full').style.left=pFull+'%';
+    $('l-pf').style.left=clamp(pPf,6,94)+'%'; $('l-pf').textContent=t.pf>100?'PF >100%':'PF '+t.pf.toFixed(1)+'%';
+    $('l-full').style.left=clamp(pFull,6,94)+'%'; $('l-full').textContent=t.full>100?'전액 >100%':'전액 '+t.full.toFixed(1)+'%';
+    $('pin').style.left=pNow+'%';
+    $('pin').style.borderTopColor = grade==='ok'?'var(--ok)':(grade==='warn'?'var(--warn)':'var(--bad)');
+
+    /* waterfall */
+    var pct=function(v){return clamp(v/BAR_MAX*100,0,100)+'%';};
+    var gap=Math.max(0,FULL-m.X);
+    $('g-pf').style.width=pct(m.pfPaid);
+    $('g-sub').style.width=pct(m.subPaid);
+    $('g-cash').style.width=pct(m.cash);
+    $('g-gap').style.width=pct(gap);
+    $('g-pf').textContent   = m.pfPaid/BAR_MAX>0.12 ? f0(m.pfPaid) : '';
+    $('g-sub').textContent  = m.subPaid/BAR_MAX>0.06 ? f0(m.subPaid) : '';
+    $('g-cash').textContent = m.cash/BAR_MAX>0.06 ? f0(m.cash) : '';
+    $('g-gap').textContent  = '';
+    $('t-pf').style.left=(PF/BAR_MAX*100)+'%';
+    $('t-full').style.left=(FULL/BAR_MAX*100)+'%';
+    var lp=$('lt-pf'), lf=$('lt-full');
+    lp.style.left=(PF/BAR_MAX*100)+'%'; lp.style.transform='translateX(-100%)'; lp.style.paddingRight='5px';
+    lf.style.left=(FULL/BAR_MAX*100)+'%'; lf.style.transform='none'; lf.style.paddingLeft='5px';
+    $('v-avail').textContent=f1(m.X)+'억';
+
+    /* verdict */
+    var badge=$('badge'), note=$('badge-note');
+    badge.className='badge-lg '+grade;
+    if(grade==='ok'){
+      badge.textContent='전액 상환';
+      note.textContent='본PF 2,100억과 후순위 380억을 모두 지급하고 '+f1(m.cash)+'억이 남습니다.';
+    }else if(grade==='warn'){
+      badge.textContent='조건부 상환';
+      note.textContent='본PF 2,100억은 상환되지만 후순위 '+f1(m.subUn)+'억이 미지급으로 남습니다. 시공사 유보금과 시행사 대여금이 손실을 흡수하는 구간이며, 구속력 있는 후순위 유예약정이 전제입니다.';
+    }else{
+      badge.textContent='상환 불가';
+      note.textContent='본PF 원금 '+f1(m.pfUn)+'억이 미상환으로 남습니다. 후순위 380억은 전액 미지급이며, 부족액은 대주단 손실로 귀속됩니다.';
+    }
+
+    /* tiles */
+    var d=m.S-PLAN_SALES;
+    $('t-sales').textContent=f1(m.S);
+    $('d-sales').textContent='계획 대비 '+(d>=0?'+':'−')+f1(Math.abs(d));
+    var setV=function(id,v,cls){var e=$(id); e.textContent=v; e.className='v '+cls;};
+    setV('t-pfun', m.pfUn>0?f1(m.pfUn):'–', m.pfUn>0?'bad':'zero');
+    setV('t-subun', m.subUn>0?f1(m.subUn):'–', m.subUn>0?'warn':'zero');
+    setV('t-cash', f1(m.cash), m.cash>0?'ok':'zero');
+    setV('t-dscr', (m.X/PF).toFixed(2)+'배', m.X>=PF?(m.X>=FULL?'ok':'warn'):'bad');
+    var units=Math.round(402*(1-R));
+    setV('t-unsold', f0(units)+'세대', units>0?'warn':'zero');
+    $('d-unsold').textContent='재고 자산 '+f1(m.unsold)+'억';
+
+    /* summary line */
+    var s=$('sim-summary'), pf=t.pf.toFixed(1), fu=t.full.toFixed(1);
+    var head = (Math.abs(R-1)<0.0001 && P===2950 && !st) ? '계획 시나리오입니다. ' : '';
+    var tail = t.pf>100
+      ? '평당 '+f0(P)+'만원에서는 분양률 100%로도 본PF 원금 상환이 불가능합니다 — 필요 분양률 '+pf+'%.'
+      : '평당 '+f0(P)+'만원 기준 <b>'+fu+'%</b>에서 시행이익이 소멸하고, <b>'+pf+'%</b>에서 본PF 원금 상환이 무너집니다.'
+        + (st?' (추가 금융비용 180억 반영 기준)':'');
+    s.innerHTML=head+tail;
+  }
+
+  [sRate,sPrice].forEach(function(el){ el.addEventListener('input',render); });
+  sStress.addEventListener('change',render);
+  render();
+})();
+</script>
 </body>
 </html>
